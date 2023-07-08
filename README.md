@@ -21,28 +21,31 @@ Este repositorio ha sido creado para ilustrar la parte experimental y práctica 
 ## Instalación de librerías necesarias
 
 1) conda install pytorch torchvision torchaudio cudatoolkit=11.1 -c pytorch -c conda-forge
-	 [INTERACCIÓN 1]
+   <pre>
+	 [INTERACCIÓN 1]  
+   </pre>
 
-2) pip install transformers sentencepiece protobuf
+3) pip install transformers sentencepiece protobuf
 
-3) pip install -U pip setuptools wheel
+4) pip install -U pip setuptools wheel
 	+ setuptools y wheel: requirement already satisfied
 	+ pip: error
 	  ERROR: To modify pip, please run the following command:
 	  C:\Users\gonza\miniconda3\envs\crocodile37\python.exe -m pip install -U pip setuptools wheel
 
-4) curl https://sh.rustup.rs -sSf | sh
-	 [INTERACCIÓN 2]
+5) curl https://sh.rustup.rs -sSf | sh
+   <pre>
+	  [INTERACCIÓN 2] 
+   </pre>
 
-En Linux
-5) source "$HOME/.cargo/env"
-En Windows
-5) cerrar y abrir la consola
+6) source "$HOME/.cargo/env" {en Linux}
+5) cerrar y abrir la consola {en Windows}
 
 6) pip install Cython
 
-Moverse hasta la raíz del directorio CROCODILE si no se está ya
-7) pip install -r requirements.txt
+7) Moverse hasta la raíz del directorio CROCODILE si no se está ya
+   
+8) pip install -r requirements.txt
 
 
 ## Modificaciones al código
