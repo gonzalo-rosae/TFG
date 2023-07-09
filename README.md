@@ -104,13 +104,10 @@ Wikiextractor.py
 sed -i "s/output.write(line)#.encode('utf-8'))/output.write(line.encode('utf-8'))/g" wikiextractor/wikiextractor/WikiExtractor.py
 </pre>
 
-C:\Users\gonza\Documentos\V\Universidad\TFG\crocodile\wikiextractor\wikiextractor\WikiExtractor.py:{línea 327}\
-DE: file = decode_open(template_file) // por defecto es UTF-8\
-A: file = decode_open(template_file, encoding='ISO-8859-1')
+Y ahora sustituimos las apariciones de UTF-8 por latin1 (ISO-8859-1)
 <pre>
-sed -i "s/file = decode_open(template_file)/file = decode_open(template_file, encoding='ISO-8859-1')/g" archivo.py
+sed -i 's/utf-8/iso-8859-1/g' 
 </pre>
-Quizá también todas las demas apariciones de UTF-8?
 
 
 ## Interacciones
