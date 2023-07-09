@@ -66,10 +66,11 @@ sed -i 's/csv.field_size_limit(sys.maxsize)/csv.field_size_limit(131071)/' C:\Us
 - Rutas
 - Requirements
 - Fichero dump Wikipedia XML
+  
 C:\Users\\%USUARIO%\miniconda3\envs\\%ENTORNO%\Lib\site-packages\wikimapper\download.py:{línea 52}\
 ADD:     wikipedia_dump = dumpname + "-pages-articles-multistream.xml.bz2"\
 o\
-sed -i '52i\wikipedia_dump = dumpname + "-pages-articles-multistream.xml.bz2"' C:\Users\\%USUARIO%\miniconda3\envs\\%ENTORNO%\Lib\site-packages\wikimapper\download.py
+sed -i '52i\    wikipedia_dump = dumpname + "-pages-articles-multistream.xml.bz2"' C:\Users\\%USUARIO%\miniconda3\envs\\%ENTORNO%\Lib\site-packages\wikimapper\download.py
 
 C:\Users\\%USUARIO%\miniconda3\envs\\%ENTORNO%\Lib\site-packages\wikimapper\download.py:{línea 54}\
 FROM:    for dump in [pages_dump, page_props_dump, redirects_dump]:\
