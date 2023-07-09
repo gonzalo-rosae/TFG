@@ -95,7 +95,7 @@ sed -i 's/mkdir data\/$1/mkdir -p data\/$1/' extract_lan.sh
 </pre>
 
 <pre>
-sed -i 's@wikimapper create $1wiki-latest --dumpdir data/$1/ --target data/$1/index_$1wiki-latest.db@if [ ! -f "data/$1/index_$1wiki-latest.db" ] || [ ! -f "data/$1/index_$1wiki-latest.db-journal" ]; then\n  wikimapper create $1wiki-latest --dumpdir data/$1/ --target data/$1/index_$1wiki-latest.db\nelse\n  echo "INFO - Wikidata database files already exist, skipping creation step."\nfi@g' extract_lan.sh
+sed -i "s#wikimapper create \$1wiki-latest --dumpdir data/\$1/ --target data/\$1/index_\$1wiki-latest.db#if [ ! -f \"data/\$1/index_\$1wiki-latest.db\" ] || [ ! -f \"data/\$1/index_\$1wiki-latest.db-journal\" ]; then\n  wikimapper create \$1wiki-latest --dumpdir data/\$1/ --target data/\$1/index_\$1wiki-latest.db\nelse\n  echo \"INFO - Wikidata database files already exist, skipping creation step.\"\nfi#g" extract_lan.sh
 </pre>
 
 Wikiextractor.py
