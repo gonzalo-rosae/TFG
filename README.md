@@ -47,8 +47,10 @@ Este repositorio ha sido creado para ilustrar la parte experimental y práctica 
 7) git clone https://github.com/Babelscape/crocodile.git
 
 8) cd crocodile
+
+9) git clone https://github.com/LittlePea13/wikiextractor.git
    
-9) pip install -r requirements.txt
+10) pip install -r requirements.txt
 
 
 ## Modificaciones al código
