@@ -87,7 +87,7 @@ sed -i 's/for dump in \[pages_dump, page_props_dump, redirects_dump\]:/for dump 
 CROCODILE/extract_lan.sh
 ADD:	set -e
 <pre>
-sed -i '8s/^/set -e\n/' extract_lan.sh
+sed -i '8i\set -e' extract_lan.sh
 </pre>
 
 <pre>
