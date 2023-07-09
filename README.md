@@ -58,7 +58,7 @@ C:\Users\%USUARIO%\miniconda3\envs\%ENTORNO%\lib\site-packages\wikimapper\proces
 FROM: csv.field_size_limit(sys.maxsize)\
 TO:   csv.field_size_limit(131071)\
 o\
-sed -i 's/csv.field_size_limit(sys.maxsize)/csv.field_size_limit(131071)/' C:\Users\%USUARIO%\miniconda3\envs\%ENTORNO%\lib\site-packages\wikimapper\processor.py
+sed -i 's/csv.field_size_limit(sys.maxsize)/csv.field_size_limit(131071)/' C:\Users\\%USUARIO%\miniconda3\envs\\%ENTORNO%\lib\site-packages\wikimapper\processor.py
 
 ### Modificaciones al código repositorio:
 - Rutas
