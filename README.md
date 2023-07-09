@@ -62,43 +62,66 @@ Este repositorio ha sido creado para ilustrar la parte experimental y práctica 
 ## Modificaciones al código
 
 ### Modificaciones al código librería:
+C:\Users\\%USUARIO%\miniconda3\envs\\%ENTORNO%\Lib\site-packages\wikimapper\download.py:{línea 52}\
+ADD:     wikipedia_dump = dumpname + "-pages-articles-multistream.xml.bz2"\
+<pre>
+sed -i '52i\    wikipedia_dump = dumpname + "-pages-articles-multistream.xml.bz2"' C:\Users\\%USUARIO%\miniconda3\envs\\%ENTORNO%\Lib\site-packages\wikimapper\download.py
+</pre>
+
 C:\Users\%USUARIO%\miniconda3\envs\%ENTORNO%\lib\site-packages\wikimapper\processor.py:{línea 117}\
 FROM: csv.field_size_limit(sys.maxsize)\
 TO:   csv.field_size_limit(131071)\
-o\
+<pre>
 sed -i 's/csv.field_size_limit(sys.maxsize)/csv.field_size_limit(131071)/' C:\Users\\%USUARIO%\miniconda3\envs\\%ENTORNO%\lib\site-packages\wikimapper\processor.py
-
-C:\Users\\%USUARIO%\miniconda3\envs\\%ENTORNO%\Lib\site-packages\wikimapper\download.py:{línea 52}\
-ADD:     wikipedia_dump = dumpname + "-pages-articles-multistream.xml.bz2"\
-o\
-sed -i '52i\    wikipedia_dump = dumpname + "-pages-articles-multistream.xml.bz2"' C:\Users\\%USUARIO%\miniconda3\envs\\%ENTORNO%\Lib\site-packages\wikimapper\download.py
+</pre>
 
 C:\Users\\%USUARIO%\miniconda3\envs\\%ENTORNO%\Lib\site-packages\wikimapper\download.py:{línea 54}\
 FROM:    for dump in [pages_dump, page_props_dump, redirects_dump]:\
   TO:    for dump in [pages_dump, page_props_dump, redirects_dump, wikipedia_dump]:\
-o\
+<pre>
 sed -i 's/for dump in \[pages_dump, page_props_dump, redirects_dump\]:/for dump in \[pages_dump, page_props_dump, redirects_dump, wikipedia_dump\]:/' C:\Users\\%USUARIO%\miniconda3\envs\\%ENTORNO%\Lib\site-packages\wikimapper\download.py
+</pre>
 
 ### Modificaciones al código repositorio:
 
 CROCODILE/extract_lan.sh
 ADD:	set -e
+<pre>
 sed -i '8s/^/set -e\n/' extract_lan.sh
+</pre>
 
 (?)
+<pre>
 sed -i 's/mkdir data\/$1/mkdir -p data\/$1/' extract_lan.sh
+</pre>
+
+Wikiextractor.py
+<pre>
+sed -i "s/output.write(line)#.encode('utf-8'))/output.write(line.encode('utf-8'))/g" wikiextractor/wikiextractor/WikiExtractor.py
+</pre>
+
+C:\Users\gonza\Documentos\V\Universidad\TFG\crocodile\wikiextractor\wikiextractor\WikiExtractor.py:{línea 327}\
+DE: file = decode_open(template_file) // por defecto es UTF-8\
+A: file = decode_open(template_file, encoding='ISO-8859-1')
+<pre>
+sed -i "s/file = decode_open(template_file)/file = decode_open(template_file, encoding='ISO-8859-1')/g" archivo.py
+</pre>
+Quizá también todas las demas apariciones de UTF-8?
+
 
 ## Interacciones
 
 [INTERACCIÓN 1]*
+<pre>
 The following packages will be SUPERSEDED by a higher-priority channel:
   ca-certificates    pkgs/main::ca-certificates-2023.05.30~ --> conda-forge::ca-certificates-2023.5.7-h56e8100_0
 Proceed ([y]/n)?y
+</pre>
 
+[INTERACCIÓN 2]*\
+Puede que aparezca el siguiente mensaje (me apareció la primera vez):
 
-[INTERACCIÓN 2]*
-- Puede que aparezca el siguiente mensaje (me apareció la primera vez):
-
+<pre>
 info: downloading installer
 Warning: Not enforcing strong cipher suites for TLS, this is potentially less secure
 
@@ -162,10 +185,11 @@ Current installation options:
      default toolchain: stable (default)
                profile: default
   modify PATH variable: yes
+</pre>
 
+Y luego esto aparece seguro:
 
-- Y luego esto aparece seguro:
-
+<pre>
 1) Proceed with installation (default)
 2) Customize installation
 3) Cancel installation
@@ -177,3 +201,4 @@ This would reload its PATH environment variable to include
 Cargo's bin directory (%USERPROFILE%\.cargo\bin).
 
 Press the Enter key to continue.
+</pre>
