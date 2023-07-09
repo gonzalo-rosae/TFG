@@ -2,18 +2,24 @@
 Este repositorio ha sido creado para ilustrar la parte experimental y práctica de mi Trabajo Fin de Grado, de título «Implementación de un modelo de extracción de relaciones semánticas basado en modelos de lenguaje para el español».
 
 
-## Descripción de cada paso a ejecutar para la creación del entorno
+## Descripción de cada paso a ejecutar para la creación del entorno en Windows
 
 1) Instalar Conda/Anaconda/Miniconda
-	+ Descargar paquete: https://docs.conda.io/en/latest/miniconda.html
+	+ Descargar paquete para Windows en versión 23.3.1: https://docs.conda.io/en/latest/miniconda.html
 	+ Abrir e instala con los parámetros de configuración por defecto (*)
-	+ Abrir la terminal de conda, llamado Anaconda Prompt (miniconda3)
+	+ Abrir la terminal de conda, llamado «Anaconda Prompt (miniconda3)»
+
 	(*) También se puede marcar la opción de "añadir al PATH" para poder usar conda desde la terminal nativa (CMD)
-2) Crear entorno Python 3.7 (esta versión usaremos por defecto) y activarlo
-	+ conda create --name NOMBRE_ENTORNO python=3.7
+2) Definir variables de entorno (USUARIO y ENTORNO)
+   	+ Nombre del usuario donde se ha instalado Conda en USUARIO
+   	+ Nombre del entorno Conda que se creará en el siguiente paso en ENTORNO
+   	
+   	*Sintaxis:* set NOMBRE_VARIABLE=valor_variable
+4) Crear entorno Python 3.7 y activarlo
+	+ conda create --name %USUARIO% python=3.7
 	+ Proceed ([y]/n)? y
-	+ conda activate NOMBRE_ENTORNO
-3) Si estamos en Windows también hay que instalar Bash
+	+ conda activate %ENTORNO%
+5) Instalar Git y Bash
 	+ Se puede consultar en: https://anaconda.org/conda-forge/git-bash
 	+ conda install -c conda-forge git-bash
 	+ Proceed ([y]/n)? y
@@ -62,11 +68,6 @@ TO:   csv.field_size_limit(131071)\
 o\
 sed -i 's/csv.field_size_limit(sys.maxsize)/csv.field_size_limit(131071)/' C:\Users\\%USUARIO%\miniconda3\envs\\%ENTORNO%\lib\site-packages\wikimapper\processor.py
 
-### Modificaciones al código repositorio:
-- Rutas
-- Requirements
-- Fichero dump Wikipedia XML
-  
 C:\Users\\%USUARIO%\miniconda3\envs\\%ENTORNO%\Lib\site-packages\wikimapper\download.py:{línea 52}\
 ADD:     wikipedia_dump = dumpname + "-pages-articles-multistream.xml.bz2"\
 o\
@@ -77,6 +78,15 @@ FROM:    for dump in [pages_dump, page_props_dump, redirects_dump]:\
   TO:    for dump in [pages_dump, page_props_dump, redirects_dump, wikipedia_dump]:\
 o\
 sed -i 's/for dump in \[pages_dump, page_props_dump, redirects_dump\]:/for dump in \[pages_dump, page_props_dump, redirects_dump, wikipedia_dump\]:/' C:\Users\\%USUARIO%\miniconda3\envs\\%ENTORNO%\Lib\site-packages\wikimapper\download.py
+
+### Modificaciones al código repositorio:
+
+CROCODILE/extract_lan.sh
+ADD:	set -e
+sed -i '8s/^/set -e\n/' extract_lan.sh
+
+(?)
+sed -i 's/mkdir data\/$1/mkdir -p data\/$1/' extract_lan.sh
 
 ## Interacciones
 
