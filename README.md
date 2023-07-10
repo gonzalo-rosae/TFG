@@ -27,55 +27,79 @@ Este repositorio ha sido creado para ilustrar la parte experimental y práctica 
 
 ## Instalación de librerías necesarias
 
-1) conda install pytorch torchvision torchaudio cudatoolkit=11.1 -c pytorch -c conda-forge
+1) Instalación librerías torch (conda)
    <pre>
-	 [INTERACCIÓN 1]  
+	conda install pytorch torchvision torchaudio cudatoolkit=11.1 -c pytorch -c conda-forge  
+   </pre>
+   [INTERACCIÓN 1]
+
+2) Instalación librerías (pip)
+   <pre>
+	pip install transformers sentencepiece protobuf
    </pre>
 
-3) pip install transformers sentencepiece protobuf
-
-4) pip install -U pip setuptools wheel
-	+ setuptools y wheel: requirement already satisfied
+3) Actualización paquetes a la última versión (!)
+	<pre>
+	pip install -U pip setuptools wheel
+	</pre>
 	+ pip: error
 	  ERROR: To modify pip, please run the following command:
 	  C:\Users\%USUARIO%\miniconda3\envs\%ENTORNO%\python.exe -m pip install -U pip setuptools wheel
 
-5) curl https://sh.rustup.rs -sSf | sh
+4) s
    <pre>
-	  [INTERACCIÓN 2] 
+    curl https://sh.rustup.rs -sSf | sh 
    </pre>
+   [INTERACCIÓN 2]
 
-6) source "$HOME/.cargo/env" {en Linux}
-5) cerrar y abrir la consola {en Windows}
+5) Recargar el entorno // cerrar y abrir la consola
+	<pre>
+	source "$HOME/.cargo/env" {en Linux}
+	</pre>
 
-6) pip install Cython
+6) Instalación Cython
+	<pre>
+	pip install Cython
+	</pre>
 
-7) git clone https://github.com/Babelscape/crocodile.git
+7) Clonación repositorio cRocoDiLe
+	<pre>
+	git clone https://github.com/Babelscape/crocodile.git
+	</pre>
 
-8) cd crocodile
+8) Desplazamiento a cRocoDiLe
+	<pre>
+	cd crocodile
+	</pre>
 
-9) git clone https://github.com/LittlePea13/wikiextractor.git
+9) Clonación Wikiextractor
+	<pre>
+	git clone https://github.com/LittlePea13/wikiextractor.git
+	</pre>
    
-10) pip install -r requirements.txt
+10) Instalación librerías cRocoDiLe (requirements)
+	<pre>
+	pip install -r requirements.txt
+	</pre>
 
 
 ## Modificaciones al código
 
 ### Modificaciones al código librería:
-C:\Users\\%USUARIO%\miniconda3\envs\\%ENTORNO%\Lib\site-packages\wikimapper\download.py:{línea 52}\
+**C:\Users\\%USUARIO%\miniconda3\envs\\%ENTORNO%\Lib\site-packages\wikimapper\download.py:{línea 52}**\
 ADD:     wikipedia_dump = dumpname + "-pages-articles-multistream.xml.bz2"\
 <pre>
 sed -i '52i\    wikipedia_dump = dumpname + "-pages-articles-multistream.xml.bz2"' C:\Users\\%USUARIO%\miniconda3\envs\\%ENTORNO%\Lib\site-packages\wikimapper\download.py
 </pre>
 
-C:\Users\%USUARIO%\miniconda3\envs\%ENTORNO%\lib\site-packages\wikimapper\processor.py:{línea 117}\
+**C:\Users\%USUARIO%\miniconda3\envs\%ENTORNO%\lib\site-packages\wikimapper\processor.py:{línea 117}**\
 FROM: csv.field_size_limit(sys.maxsize)\
 TO:   csv.field_size_limit(131071)\
 <pre>
 sed -i 's/csv.field_size_limit(sys.maxsize)/csv.field_size_limit(131071)/' C:\Users\\%USUARIO%\miniconda3\envs\\%ENTORNO%\lib\site-packages\wikimapper\processor.py
 </pre>
 
-C:\Users\\%USUARIO%\miniconda3\envs\\%ENTORNO%\Lib\site-packages\wikimapper\download.py:{línea 54}\
+**C:\Users\\%USUARIO%\miniconda3\envs\\%ENTORNO%\Lib\site-packages\wikimapper\download.py:{línea 54}**\
 FROM:    for dump in [pages_dump, page_props_dump, redirects_dump]:\
   TO:    for dump in [pages_dump, page_props_dump, redirects_dump, wikipedia_dump]:\
 <pre>
@@ -84,27 +108,27 @@ sed -i 's/for dump in \[pages_dump, page_props_dump, redirects_dump\]:/for dump 
 
 ### Modificaciones al código repositorio:
 
-CROCODILE/extract_lan.sh
-ADD:	set -e
+Añadimos línea para parar la ejecución en caso de fallo
 <pre>
 sed -i '8i\set -e' extract_lan.sh
 </pre>
 
+Añadimos argumento para que no falle al intentar crear una carpeta ya existente
 <pre>
 sed -i 's/mkdir data\/$1/mkdir -p data\/$1/' extract_lan.sh
 </pre>
 
-AHORA MISMO NO ESTÁ FUNCIONANDO EL CONDICIONAL
+Modificación creación índice para hacerlo condicional (solo ejecutarlo si no se ha creado ya el índice)
 <pre>
-sed -i "s#wikimapper create \$1wiki-latest --dumpdir data/\$1/ --target data/\$1/index_\$1wiki-latest.db#if [ ! -f \"data/\$1/index_\$1wiki-latest.db\" ] || [ ! -f \"data/\$1/index_\$1wiki-latest.db-journal\" ]; then\n  wikimapper create \$1wiki-latest --dumpdir data/\$1/ --target data/\$1/index_\$1wiki-latest.db\nelse\n  echo \"INFO - Wikidata database files already exist, skipping creation step.\"\nfi#g" extract_lan.sh
+sed -i "s#wikimapper create \$1wiki-latest --dumpdir data/\$1/ --target data/\$1/index_\$1wiki-latest.db#if [ ! -f \"data/\$1/index_\$1wiki-latest.db\" ]; then\n  wikimapper create \$1wiki-latest --dumpdir data/\$1/ --target data/\$1/index_\$1wiki-latest.db\nelse\n  echo \"INFO - Wikidata database file already exists, skipping creation step.\"\nfi#g" extract_lan.sh
 </pre>
 
-Wikiextractor.py
+Descomentamos sentencia para decodificar línea leída
 <pre>
 sed -i "s/output.write(line)#.encode('utf-8'))/output.write(line.encode('utf-8'))/g" wikiextractor/wikiextractor/WikiExtractor.py
 </pre>
 
-Y ahora sustituimos las apariciones de UTF-8 por latin1 (ISO-8859-1)
+[?] Y ahora sustituimos las apariciones de UTF-8 por latin1 (ISO-8859-1)
 <pre>
 sed -i 's/utf-8/iso-8859-1/g' 
 </pre>
@@ -112,15 +136,15 @@ sed -i 's/utf-8/iso-8859-1/g'
 
 ## Interacciones
 
-[INTERACCIÓN 1]*
+**[INTERACCIÓN 1]***
 <pre>
 The following packages will be SUPERSEDED by a higher-priority channel:
   ca-certificates    pkgs/main::ca-certificates-2023.05.30~ --> conda-forge::ca-certificates-2023.5.7-h56e8100_0
 Proceed ([y]/n)?y
 </pre>
 
-[INTERACCIÓN 2]*\
-Puede que aparezca el siguiente mensaje (me apareció la primera vez):
+**[INTERACCIÓN 2]***\
+Puede que aparezca el siguiente mensaje:
 
 <pre>
 info: downloading installer
@@ -188,7 +212,7 @@ Current installation options:
   modify PATH variable: yes
 </pre>
 
-Y luego esto aparece seguro:
+Y luego este otro mensaje aparece seguro:
 
 <pre>
 1) Proceed with installation (default)
