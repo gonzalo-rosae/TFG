@@ -31,7 +31,7 @@ Este repositorio ha sido creado para ilustrar la parte experimental y práctica 
    <pre>
 	conda install pytorch torchvision torchaudio cudatoolkit=11.1 -c pytorch -c conda-forge  
    </pre>
-   [INTERACCIÓN 1]
+   **[INTERACCIÓN 1]**
 
 2) Instalación librerías (pip)
    <pre>
@@ -46,11 +46,11 @@ Este repositorio ha sido creado para ilustrar la parte experimental y práctica 
 	  ERROR: To modify pip, please run the following command:
 	  C:\Users\%USUARIO%\miniconda3\envs\%ENTORNO%\python.exe -m pip install -U pip setuptools wheel
 
-4) s
+4) Instalación Rust
    <pre>
     curl https://sh.rustup.rs -sSf | sh 
    </pre>
-   [INTERACCIÓN 2]
+   **[INTERACCIÓN 2]**
 
 5) Recargar el entorno // cerrar y abrir la consola
 	<pre>
