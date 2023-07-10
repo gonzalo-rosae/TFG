@@ -130,7 +130,7 @@ sed -i "s/output.write(line)#.encode('utf-8'))/output.write(line.encode('utf-8')
 
 [?] Y ahora sustituimos las apariciones de UTF-8 por latin1 (ISO-8859-1)
 <pre>
-sed -i 's/utf-8/iso-8859-1/g' 
+sed -i 's/utf-8/iso-8859-1/g' wikiextractor/wikiextractor/WikiExtractor.py
 </pre>
 
 
