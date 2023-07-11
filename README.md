@@ -16,7 +16,7 @@ Este repositorio ha sido creado para ilustrar la parte experimental y práctica 
    	
    	*Sintaxis:* set NOMBRE_VARIABLE=valor_variable
 4) Crear entorno Python 3.7 y activarlo
-	+ conda create --name %USUARIO% python=3.7
+	+ conda create --name %ENTORNO% python=3.7
 	+ Proceed ([y]/n)? y
 	+ conda activate %ENTORNO%
 5) Instalar Git y Bash (mismo paquete)
