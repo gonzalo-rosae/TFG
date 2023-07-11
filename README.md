@@ -27,18 +27,18 @@ Este repositorio ha sido creado para ilustrar la parte experimental y práctica 
 
 ## Instalación de librerías necesarias
 
-1) Instalación librerías torch (conda)
+1) Instalación librerías torch (conda):
    <pre>
 	conda install pytorch torchvision torchaudio cudatoolkit=11.1 -c pytorch -c conda-forge  
    </pre>
    **[INTERACCIÓN 1]**
 
-2) Instalación librerías (pip)
+2) Instalación librerías (pip):
    <pre>
 	pip install transformers sentencepiece protobuf
    </pre>
 
-3) Actualización paquetes a la última versión (!)
+3) Actualización paquetes a la última versión (!):
 	<pre>
 	pip install -U pip setuptools wheel
 	</pre>
@@ -46,38 +46,38 @@ Este repositorio ha sido creado para ilustrar la parte experimental y práctica 
 	  ERROR: To modify pip, please run the following command:
 	  C:\Users\%USUARIO%\miniconda3\envs\%ENTORNO%\python.exe -m pip install -U pip setuptools wheel
 
-4) Instalación Rust
+4) Instalación Rust:
    <pre>
     curl https://sh.rustup.rs -sSf | sh 
    </pre>
    **[INTERACCIÓN 2]**
 
-5) Recargar el entorno // cerrar y abrir la consola
+5) Cerrar y abrir la consola {Windows} // recargar el entorno {Linux}:
 	<pre>
-	source "$HOME/.cargo/env" {en Linux}
+	source "$HOME/.cargo/env"
 	</pre>
 
-6) Instalación Cython
+6) Instalación Cython:
 	<pre>
 	pip install Cython
 	</pre>
 
-7) Clonación repositorio cRocoDiLe
+7) Clonación repositorio cRocoDiLe:
 	<pre>
 	git clone https://github.com/Babelscape/crocodile.git
 	</pre>
 
-8) Desplazamiento a cRocoDiLe
+8) Desplazamiento a directorio cRocoDiLe:
 	<pre>
 	cd crocodile
 	</pre>
 
-9) Clonación Wikiextractor
+9) Clonación Wikiextractor:
 	<pre>
 	git clone https://github.com/LittlePea13/wikiextractor.git
 	</pre>
    
-10) Instalación librerías cRocoDiLe (requirements)
+10) Instalación librerías cRocoDiLe (*requirements*):
 	<pre>
 	pip install -r requirements.txt
 	</pre>
@@ -89,46 +89,46 @@ Este repositorio ha sido creado para ilustrar la parte experimental y práctica 
 **C:\Users\\%USUARIO%\miniconda3\envs\\%ENTORNO%\Lib\site-packages\wikimapper\download.py:{línea 52}**\
 ADD:     wikipedia_dump = dumpname + "-pages-articles-multistream.xml.bz2"
 <pre>
-sed -i '52i\    wikipedia_dump = dumpname + "-pages-articles-multistream.xml.bz2"' C:\Users\\%USUARIO%\miniconda3\envs\\%ENTORNO%\Lib\site-packages\wikimapper\download.py
+sed -i '52i\    wikipedia_dump = dumpname + "-pages-articles-multistream.xml.bz2"' C:\Users\%USUARIO%\miniconda3\envs\%ENTORNO%\Lib\site-packages\wikimapper\download.py
 </pre>
 
 **C:\Users\\%USUARIO%\miniconda3\envs\\%ENTORNO%\Lib\site-packages\wikimapper\download.py:{línea 54}**\
 FROM:    for dump in [pages_dump, page_props_dump, redirects_dump]:\
   TO:    for dump in [pages_dump, page_props_dump, redirects_dump, wikipedia_dump]:
 <pre>
-sed -i 's/for dump in \[pages_dump, page_props_dump, redirects_dump\]:/for dump in \[pages_dump, page_props_dump, redirects_dump, wikipedia_dump\]:/' C:\Users\\%USUARIO%\miniconda3\envs\\%ENTORNO%\Lib\site-packages\wikimapper\download.py
+sed -i 's/for dump in \[pages_dump, page_props_dump, redirects_dump\]:/for dump in \[pages_dump, page_props_dump, redirects_dump, wikipedia_dump\]:/' C:\Users\%USUARIO%\miniconda3\envs\%ENTORNO%\Lib\site-packages\wikimapper\download.py
 </pre>
 
 **C:\Users\%USUARIO%\miniconda3\envs\%ENTORNO%\lib\site-packages\wikimapper\processor.py:{línea 117}**\
 FROM: csv.field_size_limit(sys.maxsize)\
 TO:   csv.field_size_limit(131071)
 <pre>
-sed -i 's/csv.field_size_limit(sys.maxsize)/csv.field_size_limit(131071)/' C:\Users\\%USUARIO%\miniconda3\envs\\%ENTORNO%\lib\site-packages\wikimapper\processor.py
+sed -i 's/csv.field_size_limit(sys.maxsize)/csv.field_size_limit(131071)/' C:\Users\%USUARIO%\miniconda3\envs\%ENTORNO%\lib\site-packages\wikimapper\processor.py
 </pre>
 
 ### Modificaciones al código repositorio:
 
-Añadimos línea para parar la ejecución en caso de fallo
+Añadimos línea para parar la ejecución en caso de fallo:
 <pre>
 sed -i '8i\set -e' extract_lan.sh
 </pre>
 
-Añadimos argumento para que no falle al intentar crear una carpeta ya existente
+Añadimos argumento para que no falle al intentar crear una carpeta ya existente:
 <pre>
 sed -i 's/mkdir data\/$1/mkdir -p data\/$1/' extract_lan.sh
 </pre>
 
-Modificación creación índice para hacerlo condicional (solo ejecutarlo si no se ha creado ya el índice)
+Modificación creación índice para hacerlo condicional (y que solo se ejecute si no se ha creado ya el índice):
 <pre>
 sed -i "s#wikimapper create \$1wiki-latest --dumpdir data/\$1/ --target data/\$1/index_\$1wiki-latest.db#if [ ! -f \"data/\$1/index_\$1wiki-latest.db\" ]; then\n  wikimapper create \$1wiki-latest --dumpdir data/\$1/ --target data/\$1/index_\$1wiki-latest.db\nelse\n  echo \"INFO - Wikidata database file already exists, skipping creation step.\"\nfi#g" extract_lan.sh
 </pre>
 
-Descomentamos sentencia para decodificar línea leída
+Descomentamos sentencia para decodificar línea leída:
 <pre>
 sed -i "s/output.write(line)#.encode('utf-8'))/output.write(line.encode('utf-8'))/g" wikiextractor/wikiextractor/WikiExtractor.py
 </pre>
 
-[?] Y ahora sustituimos las apariciones de UTF-8 por latin1 (ISO-8859-1)
+[?] Y ahora sustituimos las apariciones de UTF-8 por latin1 (ISO-8859-1):
 <pre>
 sed -i 's/utf-8/iso-8859-1/g' wikiextractor/wikiextractor/WikiExtractor.py
 </pre>
