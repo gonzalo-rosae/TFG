@@ -87,21 +87,21 @@ Este repositorio ha sido creado para ilustrar la parte experimental y práctica 
 
 ### Modificaciones al código librería:
 **C:\Users\\%USUARIO%\miniconda3\envs\\%ENTORNO%\Lib\site-packages\wikimapper\download.py:{línea 52}**\
-ADD:     wikipedia_dump = dumpname + "-pages-articles-multistream.xml.bz2"\
+ADD:     wikipedia_dump = dumpname + "-pages-articles-multistream.xml.bz2"
 <pre>
 sed -i '52i\    wikipedia_dump = dumpname + "-pages-articles-multistream.xml.bz2"' C:\Users\\%USUARIO%\miniconda3\envs\\%ENTORNO%\Lib\site-packages\wikimapper\download.py
 </pre>
 
 **C:\Users\\%USUARIO%\miniconda3\envs\\%ENTORNO%\Lib\site-packages\wikimapper\download.py:{línea 54}**\
 FROM:    for dump in [pages_dump, page_props_dump, redirects_dump]:\
-  TO:    for dump in [pages_dump, page_props_dump, redirects_dump, wikipedia_dump]:\
+  TO:    for dump in [pages_dump, page_props_dump, redirects_dump, wikipedia_dump]:
 <pre>
 sed -i 's/for dump in \[pages_dump, page_props_dump, redirects_dump\]:/for dump in \[pages_dump, page_props_dump, redirects_dump, wikipedia_dump\]:/' C:\Users\\%USUARIO%\miniconda3\envs\\%ENTORNO%\Lib\site-packages\wikimapper\download.py
 </pre>
 
 **C:\Users\%USUARIO%\miniconda3\envs\%ENTORNO%\lib\site-packages\wikimapper\processor.py:{línea 117}**\
 FROM: csv.field_size_limit(sys.maxsize)\
-TO:   csv.field_size_limit(131071)\
+TO:   csv.field_size_limit(131071)
 <pre>
 sed -i 's/csv.field_size_limit(sys.maxsize)/csv.field_size_limit(131071)/' C:\Users\\%USUARIO%\miniconda3\envs\\%ENTORNO%\lib\site-packages\wikimapper\processor.py
 </pre>
