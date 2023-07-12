@@ -15,11 +15,11 @@ Este repositorio ha sido creado para ilustrar la parte experimental y práctica 
    	+ Nombre del entorno Conda que se creará en el siguiente paso en ENTORNO
    	
    	*Sintaxis:* set NOMBRE_VARIABLE=valor_variable
-4) Crear entorno Python 3.7 y activarlo
+3) Crear entorno Python 3.7 y activarlo
 	+ conda create --name %ENTORNO% python=3.7
 	+ Proceed ([y]/n)? y
 	+ conda activate %ENTORNO%
-5) Instalar Git y Bash (mismo paquete)
+4) Instalar Git y Bash (mismo paquete)
 	+ Se puede consultar en: https://anaconda.org/conda-forge/git-bash
 	+ conda install -c conda-forge git-bash
 	+ Proceed ([y]/n)? y
