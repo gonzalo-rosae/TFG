@@ -53,9 +53,9 @@ Finalmente, se muestran los dos comandos necesarios para crear el dataset en la 
 	<pre>
 	pip install -U pip setuptools wheel
 	</pre>
-	+ Puede aparecer el siguiente aviso:
-    pip: error
-	  ERROR: To modify pip, please run the following command:
+	+ Puede aparecer el siguiente aviso:\
+    	  pip: error\
+	  ERROR: To modify pip, please run the following command:\
 	  C:\Users\%USUARIO%\miniconda3\envs\%ENTORNO%\python.exe -m pip install -U pip setuptools wheel
 
 4) Instalación Rust:
