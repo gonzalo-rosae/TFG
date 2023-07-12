@@ -40,7 +40,7 @@ Finalmente, se muestran los dos comandos necesarios para crear el dataset en la 
 
 1) Instalación librerías torch (conda):
    <pre>
-	conda install pytorch torchvision torchaudio cudatoolkit=11.1 -c pytorch -c conda-forge  
+	conda install pytorch torchvision torchaudio cudatoolkit=11.1 -c pytorch -c conda-forge
    </pre>
    **[INTERACCIÓN 1]***
 
@@ -59,7 +59,7 @@ Finalmente, se muestran los dos comandos necesarios para crear el dataset en la 
 
 4) Instalación Rust:
    <pre>
-    curl https://sh.rustup.rs -sSf | sh 
+    curl https://sh.rustup.rs -sSf | sh
    </pre>
    **[INTERACCIÓN 2]***
 
