@@ -1,8 +1,17 @@
 # TFG
 Este repositorio ha sido creado para ilustrar la parte experimental y práctica de mi Trabajo Fin de Grado, de título «Implementación de un modelo de extracción de relaciones semánticas basado en modelos de lenguaje para el español».
 
+## Instrucciones generales
+Lo primero será crear el entorno, con las librerías y programas oportunos para poder ejecutar el script que creará el dataset. Los pasos a ejecutar vienen detallados en orden 1 a 1 en las secciones **«Creación del entorno en Linux»** e **«Instalación de las librerías necesarias»**.
 
-## Descripción de cada paso a ejecutar para la creación del entorno en Windows
+A continuación, habrá que hacer algunas modificaciones al código para su correcto funcionamiento, como se detalla en **«Modificaciones al código»**, tanto en las librerías instaladas como en el propio repositorio clonado.
+
+Finalmente, se muestran los dos comandos necesarios para crear el dataset en la sección **«Ejecución y creación del dataset»**.
+
+*Nota:* En la instalación de las librerías hay un par de interacciones a través de la terminal que se enseñan en la sección del final de este archivo, llamada **«Interacciones»**.
+
+
+## Creación del entorno en Windows
 
 1) Instalar Miniconda
 	+ Descargar paquete para Windows de versión Conda 23.5.0 https://docs.conda.io/en/latest/miniconda.html
@@ -14,12 +23,14 @@ Este repositorio ha sido creado para ilustrar la parte experimental y práctica 
    	+ Nombre del usuario donde se ha instalado Conda --> USUARIO
    	+ Nombre del entorno Conda que se creará en el siguiente paso --> ENTORNO
    	
-   	*Sintaxis:* set NOMBRE_VARIABLE=valor_variable
-3) Crear entorno Python 3.7 y activarlo
+   	**Sintaxis:** set NOMBRE_VARIABLE=valor_variable
+
+   	*Nota:* al cerrar la consola las variables desaparecen y hay que definirlas de nuevo
+4) Crear entorno Python 3.7 y activarlo
 	+ conda create --name %ENTORNO% python=3.7
 	+ Proceed ([y]/n)? y
 	+ conda activate %ENTORNO%
-4) Instalar Git y Bash (mismo paquete)
+5) Instalar Git y Bash (mismo paquete)
 	+ Se puede consultar en: https://anaconda.org/conda-forge/git-bash
 	+ conda install -c conda-forge git-bash
 	+ Proceed ([y]/n)? y
@@ -31,7 +42,7 @@ Este repositorio ha sido creado para ilustrar la parte experimental y práctica 
    <pre>
 	conda install pytorch torchvision torchaudio cudatoolkit=11.1 -c pytorch -c conda-forge  
    </pre>
-   **[INTERACCIÓN 1]**
+   **[INTERACCIÓN 1]***
 
 2) Instalación librerías (pip):
    <pre>
@@ -51,7 +62,7 @@ Este repositorio ha sido creado para ilustrar la parte experimental y práctica 
    <pre>
     curl https://sh.rustup.rs -sSf | sh 
    </pre>
-   **[INTERACCIÓN 2]**
+   **[INTERACCIÓN 2]***
 
 5) Cerrar y abrir la consola de nuevo, activando el entorno otra vez:
 	<pre>
@@ -133,6 +144,18 @@ TO:   csv.field_size_limit(131071)
 <pre>
 sed -i 's/csv.field_size_limit(sys.maxsize)/csv.field_size_limit(131071)/' C:\Users\%USUARIO%\miniconda3\envs\%ENTORNO%\lib\site-packages\wikimapper\processor.py
 </pre>
+
+## Ejecución y creación del dataset
+Primero descargamos los tripletes de Wikidata (paso más lento, el archivo es grande):
+<pre>
+bash startup.sh
+</pre>
+
+A continuación el script que se encarga de todo lo demás:
+<pre>
+bash extract_lan.sh es
+</pre>
+*Nota:* "es" es el código de idioma del español
 
 
 ## Interacciones
