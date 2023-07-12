@@ -116,7 +116,7 @@ sed -i 's/utf-8/iso-8859-1/g' wikiextractor/wikiextractor/WikiExtractor.py
 
 Arreglamos una línea que tiene que corregir el formato del último fichero de resúmenes de Wikipedia
 <pre>
-echo "</data>" >> "$(ls -d text/*/ | sort -r | head -1)"/"$(ls -1 "$(ls -d text/*/ | sort -r | head -1)" | sort -r | head -1)" exract_lan.sh
+sed -i 's|echo "</data>" >> ls -1 text/$1/**/* | tail -1|echo "</data>" >> "$(ls -d text/*/ | sort -r | head -1)"/"$(ls -1 "$(ls -d text/*/ | sort -r | head -1)" | sort -r | head -1)"|' extract_lan.sh
 </pre>
 
 ### Modificaciones al código librería:
