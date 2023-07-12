@@ -1,8 +1,17 @@
 # TFG
 Este repositorio ha sido creado para ilustrar la parte experimental y práctica de mi Trabajo Fin de Grado, de título «Implementación de un modelo de extracción de relaciones semánticas basado en modelos de lenguaje para el español».
 
+## Instrucciones generales
+Lo primero será crear el entorno, con las librerías y programas oportunos para poder ejecutar el script que creará el dataset. Los pasos a ejecutar vienen detallados en orden 1 a 1 en las secciones **Creación del entorno en Linux** e **Instalación de las librerías necesarias**.
 
-## Descripción de cada paso a ejecutar para la creación del entorno en Linux
+A continuación, habrá que hacer algunas modificaciones al código para su correcto funcionamiento, como se detalla en **Modificaciones al código**, tanto en las librerías instaladas como en el propio repositorio clonado.
+
+Finalmente, se muestran los dos comandos necesarios para crear el dataset en la sección **Ejecución y creación del dataset**.
+
+*Nota:* En la instalación de las librerias hay un par de interacciones a través de la terminal que se enseñan en la sección del final de este archivo, llamada **Interacciones**.
+
+
+## Creación del entorno en Linux
 
 1) Instalar Miniconda
 	+ Descargar paquete para Linux de versión Conda 23.5.0: https://docs.conda.io/en/latest/miniconda.html
@@ -27,7 +36,7 @@ Este repositorio ha sido creado para ilustrar la parte experimental y práctica 
    <pre>
 	conda install pytorch torchvision torchaudio cudatoolkit=11.1 -c pytorch -c conda-forge  
    </pre>
-   **[INTERACCIÓN 1]**
+   **[INTERACCIÓN 1]***
 
 2) Instalación librerías (pip):
    <pre>
@@ -43,7 +52,7 @@ Este repositorio ha sido creado para ilustrar la parte experimental y práctica 
    <pre>
     curl https://sh.rustup.rs -sSf | sh 
    </pre>
-   **[INTERACCIÓN 2]**
+   **[INTERACCIÓN 2]***
 
 5) Recargar el entorno:
 	<pre>
