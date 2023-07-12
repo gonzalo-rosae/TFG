@@ -108,21 +108,21 @@ sed -i 's/utf-8/iso-8859-1/g' wikiextractor/wikiextractor/WikiExtractor.py
 **wikimapper\download.py:{línea 52}**\
 ADD:     wikipedia_dump = dumpname + "-pages-articles-multistream.xml.bz2"
 <pre>
-sed -i '52i\    wikipedia_dump = dumpname + "-pages-articles-multistream.xml.bz2"' /home/$usuario/miniconda3/envs/$entorno/lib/python3.7/site-packages/wikimapper/download.py
+sed -i '52i\    wikipedia_dump = dumpname + "-pages-articles-multistream.xml.bz2"' /home/$USUARIO/miniconda3/envs/$ENTORNO/lib/python3.7/site-packages/wikimapper/download.py
 </pre>
 
 **wikimapper\download.py:{línea 54}**\
 FROM:    for dump in [pages_dump, page_props_dump, redirects_dump]:\
   TO:    for dump in [pages_dump, page_props_dump, redirects_dump, wikipedia_dump]:
 <pre>
-sed -i 's/for dump in \[pages_dump, page_props_dump, redirects_dump\]:/for dump in \[pages_dump, page_props_dump, redirects_dump, wikipedia_dump\]:/' /home/$usuario/miniconda3/envs/$entorno/lib/python3.7/site-packages/wikimapper/download.py
+sed -i 's/for dump in \[pages_dump, page_props_dump, redirects_dump\]:/for dump in \[pages_dump, page_props_dump, redirects_dump, wikipedia_dump\]:/' /home/$USUARIO/miniconda3/envs/$ENTORNO/lib/python3.7/site-packages/wikimapper/download.py
 </pre>
 
 **wikimapper\processor.py:{línea 117}**\
 FROM: csv.field_size_limit(sys.maxsize)\
 TO:   csv.field_size_limit(131071)
 <pre>
-sed -i 's/csv.field_size_limit(sys.maxsize)/csv.field_size_limit(131071)/' /home/$usuario/miniconda3/envs/$entorno/lib/python3.7/site-packages/wikimapper/processor.py
+sed -i 's/csv.field_size_limit(sys.maxsize)/csv.field_size_limit(131071)/' /home/$USUARIO/miniconda3/envs/$ENTORNO/lib/python3.7/site-packages/wikimapper/processor.py
 </pre>
 
 
