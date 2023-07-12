@@ -8,7 +8,7 @@ A continuación, habrá que hacer algunas modificaciones al código para su corr
 
 Finalmente, se muestran los dos comandos necesarios para crear el dataset en la sección **Ejecución y creación del dataset**.
 
-*Nota:* En la instalación de las librerias hay un par de interacciones a través de la terminal que se enseñan en la sección del final de este archivo, llamada **Interacciones**.
+*Nota:* En la instalación de las librerías hay un par de interacciones a través de la terminal que se enseñan en la sección del final de este archivo, llamada **Interacciones**.
 
 
 ## Creación del entorno en Linux
