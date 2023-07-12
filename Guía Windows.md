@@ -20,8 +20,8 @@ Finalmente, se muestran los dos comandos necesarios para crear el dataset en la 
 
 	(*) También se puede marcar la opción de "añadir al PATH" para poder usar conda desde la terminal nativa (CMD)
 2) Definir variables de entorno (USUARIO y ENTORNO)
-   	+ Nombre del usuario donde se ha instalado Conda --> USUARIO
-   	+ Nombre del entorno Conda que se creará en el siguiente paso --> ENTORNO
+   	+ Nombre del usuario donde se ha instalado Conda → USUARIO
+   	+ Nombre del entorno Conda que se creará en el siguiente paso → ENTORNO
    	
    	**Sintaxis:** set NOMBRE_VARIABLE=valor_variable
 
