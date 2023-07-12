@@ -5,7 +5,7 @@ Este repositorio ha sido creado para ilustrar la parte experimental y práctica 
 ## Descripción de cada paso a ejecutar para la creación del entorno en Windows
 
 1) Instalar Miniconda
-	+ Descargar paquete para Windows en versión 23.3.1: https://docs.conda.io/en/latest/miniconda.html
+	+ Descargar paquete para Windows de versión Conda 23.5.0 https://docs.conda.io/en/latest/miniconda.html
 	+ Abrir e instala con los parámetros de configuración por defecto (*)
 	+ Abrir la terminal de conda, llamado «Anaconda Prompt (miniconda3)»
 
