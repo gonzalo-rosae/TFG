@@ -19,8 +19,8 @@ Finalmente, se muestran los dos comandos necesarios para crear el dataset en la 
 	+ Abrir la terminal o consola de comandos
 
 2) Definir variables de entorno (USUARIO y ENTORNO)
-   	+ Nombre del usuario donde se ha instalado Conda --> USUARIO
-   	+ Nombre del entorno Conda que se creará en el siguiente paso --> ENTORNO
+   	+ Nombre del usuario donde se ha instalado Conda → USUARIO
+   	+ Nombre del entorno Conda que se creará en el siguiente paso → ENTORNO
    	
    	**Sintaxis:** export NOMBRE_VARIABLE=valor_variable
 
