@@ -52,9 +52,9 @@ Este repositorio ha sido creado para ilustrar la parte experimental y práctica 
    </pre>
    **[INTERACCIÓN 2]**
 
-5) Cerrar y abrir la consola {Windows} // recargar el entorno {Linux}:
+5) Cerrar y abrir la consola de nuevo, activando el entorno otra vez:
 	<pre>
-	source "$HOME/.cargo/env"
+	conda activate %ENTORNO%
 	</pre>
 
 6) Instalación Cython:
