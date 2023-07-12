@@ -13,8 +13,10 @@ Este repositorio ha sido creado para ilustrar la parte experimental y práctica 
    	+ Nombre del usuario donde se ha instalado Conda --> USUARIO
    	+ Nombre del entorno Conda que se creará en el siguiente paso --> ENTORNO
    	
-   	*Sintaxis:* export NOMBRE_VARIABLE=valor_variable
-3) Crear entorno Python 3.7 y activarlo
+   	**Sintaxis:** export NOMBRE_VARIABLE=valor_variable
+
+   	*Nota:* al cerrar la consola las variables desaparecen y hay que definirlas de nuevo
+4) Crear entorno Python 3.7 y activarlo
 	+ conda create --name $ENTORNO python=3.7
 	+ Proceed ([y]/n)? y
 	+ conda activate $ENTORNO
@@ -108,7 +110,6 @@ Arreglamos una línea que tiene que corregir el formato del último fichero de r
 echo "</data>" >> "$(ls -d text/*/ | sort -r | head -1)"/"$(ls -1 "$(ls -d text/*/ | sort -r | head -1)" | sort -r | head -1)"
 </pre>
 
-
 ### Modificaciones al código librería:
 **wikimapper\download.py:{línea 52}**\
 ADD:     wikipedia_dump = dumpname + "-pages-articles-multistream.xml.bz2"
@@ -131,6 +132,17 @@ sed -i 's/csv.field_size_limit(sys.maxsize)/csv.field_size_limit(131071)/' /home
 </pre>
 
 
+## Ejecución y creación del dataset
+Primero descargamos los tripletes de Wikidata (paso más lento, el archivo es grande):
+<pre>
+bash startup.sh
+</pre>
+
+A continuación el script que se encarga de todo lo demás:
+<pre>
+bash extract_lan.sh es
+</pre>
+*Nota:* "es" es el código de idioma del español
 
 ## Interacciones
 
