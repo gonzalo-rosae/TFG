@@ -119,9 +119,14 @@ Descomentamos sentencia para decodificar línea leída:
 sed -i "s/output.write(line)#.encode('utf-8'))/output.write(line.encode('utf-8'))/g" wikiextractor/wikiextractor/WikiExtractor.py
 </pre>
 
-[?] Y ahora sustituimos las apariciones de UTF-8 por latin1 (ISO-8859-1):
+Y ahora sustituimos las apariciones de UTF-8 por latin1 (ISO-8859-1):
 <pre>
 sed -i 's/utf-8/iso-8859-1/g' wikiextractor/wikiextractor/WikiExtractor.py
+</pre>
+
+Arreglamos una línea que tiene que corregir el formato del último fichero de resúmenes de Wikipedia
+<pre>
+echo "</data>" >> "$(ls -d text/*/ | sort -r | head -1)"/"$(ls -1 "$(ls -d text/*/ | sort -r | head -1)" | sort -r | head -1)"
 </pre>
 
 ### Modificaciones al código librería:
