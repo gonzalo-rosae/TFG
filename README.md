@@ -5,7 +5,7 @@ Este repositorio ha sido creado para ilustrar la parte experimental y práctica 
 En la raíz del repositorio se encuentran, además del presente README, un par de archivos markdown, "Guía Linux.md" y "Guía Windows.md". En estos se detallan los pasos que hay que dar para preparar todo el entorno y hacer las modificaciones oportunas antes de ejecutar la sentencia que genera el *dataset*, en sistemas Linux y Windows, respectivamente.
 
 ## Autoría
-Autor: Gonzalo de la Rosa Palacio
-Tutor: Elena Montiel Ponsoda
-Cotutor: Pablo Calleja Ibáñez
+Autor: Gonzalo de la Rosa Palacio\
+Tutor: Elena Montiel Ponsoda\
+Cotutor: Pablo Calleja Ibáñez\
 Universidad Politécnica de Madrid
